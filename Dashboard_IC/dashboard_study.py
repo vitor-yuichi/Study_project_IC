@@ -18,7 +18,7 @@ from urllib.request import urlopen
 #------------------------------------
 
 df = pd.read_csv(
-    r'C:\Users\xdead\Desktop\Projects\dashboards_ic\flood_dash.csv')
+    r'C:\Users\xdead\Desktop\Projects\dashboards_ic\Dashboard_IC\flood_dash.csv')
     
 #print(df)
 df1=df[['LAT', 'LONG']].astype(str)
@@ -37,13 +37,8 @@ def f(x):
       }}
 z=f(df1)
 
-df1.to_csv('df1.csv', index="False")
-map1 = json.load(open('df1.geojson', 'r'))
-i = 1
-for feature in map1["features"]:
-    feature['id'] = str(i).zfill(2)
-    i += 1
-df_tweet=pd.read_csv(r'C:\Users\xdead\Desktop\Projects\dashboards_ic\tweet_pluvio_radar_flood.csv')
+df_tweet = pd.read_csv(
+    r'C:\Users\xdead\Desktop\Projects\dashboards_ic\Dashboard_IC\tweet_pluvio_radar_flood.csv')
 
 select_columns={"p3": "Medida Radar",
                     "Flood Frequence": "Frequência de alagamentos",
